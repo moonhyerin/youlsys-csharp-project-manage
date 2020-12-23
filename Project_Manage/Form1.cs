@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Diagnostics;
 using System.Threading;
+using Project_Manage.Model;
 
 namespace Project_Manage
 {
@@ -46,7 +47,7 @@ namespace Project_Manage
 
             foreach (var excel in proc)
             {
-               procList.Add(excel.Id.ToString());
+                procList.Add(excel.Id.ToString());
             }
 
             CheckForIllegalCrossThreadCalls = false;
@@ -155,11 +156,11 @@ namespace Project_Manage
         //상단 Row 클릭시 클릭 해제 ==> 클릭 해제만 하면 value값은 그대로 들어감,,tqtq
         private void gridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex == -1)
+            if (e.RowIndex == -1)
             {
                 return;
             }
-            if(e.RowIndex == 0 || gridView.Rows[e.RowIndex].Cells["일자"].Style.ForeColor == Color.Red)
+            if (e.RowIndex == 0 || gridView.Rows[e.RowIndex].Cells["일자"].Style.ForeColor == Color.Red)
             {
                 gridView.Rows[e.RowIndex].Selected = false;
             }
@@ -263,7 +264,7 @@ namespace Project_Manage
                     if (!ofd.FileName.EndsWith("xlsx") && !ofd.FileName.EndsWith("xls"))
                         return;
 
-                    
+
                     string constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + ofd.FileName + ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
                     con = new OleDbConnection(constr);
                     con.Open();
@@ -306,7 +307,7 @@ namespace Project_Manage
         #region 입력 버튼 클릭
         private void metroButton3_Click(object sender, EventArgs e)
         {
-            if(pCodeTable == null)
+            if (pCodeTable == null)
             {
                 return;
             }
@@ -325,7 +326,7 @@ namespace Project_Manage
                     bool isOverwrite = false;
                     foreach (DataGridViewRow r in gridView.SelectedRows)
                     {
-                        for(int i=1; i<r.Cells.Count; i++)
+                        for (int i = 1; i < r.Cells.Count; i++)
                         {
                             if (r.Cells[i].Value.ToString() != "")
                             {
@@ -342,8 +343,8 @@ namespace Project_Manage
                                 }
                             }
                         }
-                        
-                        if(isOverwrite == true)
+
+                        if (isOverwrite == true)
                         {
                             break;
                         }
@@ -387,7 +388,7 @@ namespace Project_Manage
                 {
                     foreach (DataGridViewRow r in gridView.SelectedRows)
                     {
-                        for(int i=1; i<r.Cells.Count; i++)
+                        for (int i = 1; i < r.Cells.Count; i++)
                         {
                             r.Cells[i].Value = "";
                         }
@@ -410,22 +411,22 @@ namespace Project_Manage
                 return;
             }
 
-            
+
 
             //입력된 프로젝트 코드와 시간을 받아온다.
             //주,보조,보조(PS),출장/외근 의 경우를 나눠서 입력한다.
             string mainP = pcodeTbox1 != null ? pcodeTbox1.Text.ToUpper() : string.Empty;
-            if(!string.IsNullOrEmpty(mainP)) 
-                if(checkAvailablePcode(mainP)==false) return;
+            if (!string.IsNullOrEmpty(mainP))
+                if (checkAvailablePcode(mainP) == false) return;
             string assisP = pcodeTbox2 != null ? pcodeTbox2.Text.ToUpper() : string.Empty;
             if (!string.IsNullOrEmpty(assisP))
-                if(checkAvailablePcode(assisP) == false) return;
+                if (checkAvailablePcode(assisP) == false) return;
             string psP = pcodeTbox3 != null ? pcodeTbox3.Text.ToUpper() : string.Empty;
             if (!string.IsNullOrEmpty(psP))
-                if(checkAvailablePcode(psP) == false) return;
+                if (checkAvailablePcode(psP) == false) return;
             string etcP = pcodeTbox4 != null ? pcodeTbox4.Text.ToUpper() : string.Empty;
             if (!string.IsNullOrEmpty(etcP))
-                if(checkAvailablePcode(etcP) == false) return;
+                if (checkAvailablePcode(etcP) == false) return;
             string mainPtime = time1 != null ? time1.Text : string.Empty;
             string assisPtime = time2 != null ? time2.Text : string.Empty;
             string psPtime = time3 != null ? time3.Text : string.Empty;
@@ -436,7 +437,7 @@ namespace Project_Manage
 
             //반차 여부 확인
             bool check_half = false;
-            if(halfDay.Checked == true)
+            if (halfDay.Checked == true)
             {
                 check_half = true;
             }
@@ -485,7 +486,7 @@ namespace Project_Manage
                         t.Text = string.Empty;
                     }
                 }
-                
+
                 halfDay.Checked = false;
             }
             else
@@ -503,7 +504,7 @@ namespace Project_Manage
                 MessageBox.Show("존재하지 않는 프로젝트 코드 : " + pcode);
                 return false;
             }
-            
+
             return true;
 
         }
@@ -512,9 +513,9 @@ namespace Project_Manage
         #region 프로젝트코드 검색 및 초기화 이벤트
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            if(pCodeTable == null)
+            if (pCodeTable == null)
                 return;
-            
+
             //검색 버튼 클릭 시
             string keyword = searchTextbox.Text.ToUpper();
 
@@ -524,9 +525,9 @@ namespace Project_Manage
             searchResult.Columns.Add("프로젝트");
             searchResult.Columns.Add("용역기간");
 
-            for (int i=0; i< pCodeTable.Rows.Count; i++)
+            for (int i = 0; i < pCodeTable.Rows.Count; i++)
             {
-                for(int j=0; j< pCodeTable.Rows[i].ItemArray.Length; j++)
+                for (int j = 0; j < pCodeTable.Rows[i].ItemArray.Length; j++)
                 {
                     if (pCodeTable.Rows[i][j].ToString().Contains(keyword))
                     {
@@ -546,7 +547,7 @@ namespace Project_Manage
 
         private void reset_Click(object sender, EventArgs e)
         {
-            if(pCodeTable != null)
+            if (pCodeTable != null)
             {
                 pCodeGridView.DataSource = pCodeTable;
             }
@@ -562,7 +563,7 @@ namespace Project_Manage
             {
                 pcode = pCodeGridView.Rows[pCodeGridView.CurrentCell.RowIndex].Cells["코드"].Value.ToString();
                 MetroButton btn = sender as MetroButton;
-                switch(btn.Name)
+                switch (btn.Name)
                 {
                     case "inputPcodeBtn1": pcodeTbox1.Text = pcode; break;
                     case "inputPcodeBtn2": pcodeTbox2.Text = pcode; break;
@@ -597,12 +598,12 @@ namespace Project_Manage
         private void timeTboxTextChanged(object sender, EventArgs e)
         {
             double total = 0;
-            foreach(Control c in groupBox2.Controls)
+            foreach (Control c in groupBox2.Controls)
             {
-                if(c is TextBox && (c.Name == "time1" || c.Name == "time2" || c.Name == "time3" || c.Name == "time4"))
+                if (c is TextBox && (c.Name == "time1" || c.Name == "time2" || c.Name == "time3" || c.Name == "time4"))
                 {
                     TextBox t = c as TextBox;
-                    if(t.Text != string.Empty)
+                    if (t.Text != string.Empty)
                     {
                         total += Double.Parse(t.Text);
                     }
@@ -634,7 +635,7 @@ namespace Project_Manage
                 {
                     foreach (Control control in groupBox2.Controls)
                     {
-                        if(control is TextBox)
+                        if (control is TextBox)
                         {
                             ((TextBox)control).Enabled = false;
                         }
@@ -683,11 +684,11 @@ namespace Project_Manage
         #endregion
 
         #region 임시 프로젝트 코드 관련 기능
-        private void TempPcodeClicked (object sender, EventArgs e)
+        private void TempPcodeClicked(object sender, EventArgs e)
         {
             MetroButton btn = sender as MetroButton;
 
-            if(btn.Text == "추가")
+            if (btn.Text == "추가")
             {
                 //임시 프로젝트코드 추가
                 AddTempPcode addForm = new AddTempPcode(this);
@@ -719,9 +720,9 @@ namespace Project_Manage
                 //먼저 pcodeTable에서 temp를 다 지운다음
                 for (int i = pCodeTable.Rows.Count - 1; i >= 0; i--)
                 {
-                    for(int j= tempPcodeTable.Rows.Count - 1; j >= 0; j--)
+                    for (int j = tempPcodeTable.Rows.Count - 1; j >= 0; j--)
                     {
-                        if(pCodeTable.Rows[i]["코드"].ToString() == tempPcodeTable.Rows[j]["코드"].ToString())
+                        if (pCodeTable.Rows[i]["코드"].ToString() == tempPcodeTable.Rows[j]["코드"].ToString())
                         {
                             pCodeTable.Rows[i].Delete();
                             pCodeTable.AcceptChanges();
@@ -729,24 +730,24 @@ namespace Project_Manage
                         }
                     }
                 }
-                
+
                 //deletedCode를 temp에서 지운다
                 string[] deletedCode = textBox1.Text.Split(',');
-                for(int i = 0; i<deletedCode.Length; i++)
+                for (int i = 0; i < deletedCode.Length; i++)
                 {
-                    for(int k = tempPcodeTable.Rows.Count - 1; k >= 0; k--)
+                    for (int k = tempPcodeTable.Rows.Count - 1; k >= 0; k--)
                     {
-                        if(tempPcodeTable.Rows[k]["코드"].ToString() == deletedCode[i])
+                        if (tempPcodeTable.Rows[k]["코드"].ToString() == deletedCode[i])
                         {
                             tempPcodeTable.Rows[k].Delete();
                             tempPcodeTable.AcceptChanges();
-                        }   
+                        }
                     }
                 }
 
                 //임시코드 테이블 재정렬
                 int lastNumberOfPcodeTable = pCodeTable.Rows.Count;
-                for(int a = 0; a < tempPcodeTable.Rows.Count; a++)
+                for (int a = 0; a < tempPcodeTable.Rows.Count; a++)
                 {
                     lastNumberOfPcodeTable++;
                     tempPcodeTable.Rows[a]["코드"] = "P" + lastNumberOfPcodeTable;
@@ -771,44 +772,44 @@ namespace Project_Manage
             {
                 th = new Thread(new ThreadStart(progressFunc));
                 th.Start();
-                
+
                 //입력된 시간의 합이 하루에 8시간인지 체크
                 for (int i = 1; i <= gridView.Rows.Count - 1; i++)
                 {
                     gridView.Rows[i].DefaultCellStyle.BackColor = Color.White;
                 }
-                
+
                 bool isCorrect = true;
-                for(int i=1; i<=gridView.Rows.Count-1; i++)
+                for (int i = 1; i <= gridView.Rows.Count - 1; i++)
                 {
                     string holiday = string.IsNullOrEmpty(gridView.Rows[i].Cells["기타(출장Code번호명기)"].Value.ToString()) ?
                         "" : gridView.Rows[i].Cells["기타(출장Code번호명기)"].Value.ToString();
                     if (gridView.Rows[i].Cells["일자"].Style.ForeColor != Color.Red)
                     {
-                        if(holiday != "연차" && holiday != "병가")
+                        if (holiday != "연차" && holiday != "병가")
                         {
                             double c1 = (string.IsNullOrEmpty(gridView.Rows[i].Cells[" "].Value.ToString())) ? 0 : Double.Parse(gridView.Rows[i].Cells[" "].Value.ToString());
                             double c2 = string.IsNullOrEmpty(gridView.Rows[i].Cells["  "].Value.ToString()) ? 0 : Double.Parse(gridView.Rows[i].Cells["  "].Value.ToString());
                             double c3 = string.IsNullOrEmpty(gridView.Rows[i].Cells["   "].Value.ToString()) ? 0 : Double.Parse(gridView.Rows[i].Cells["   "].Value.ToString());
                             //출장/외근시간 다른 방법으로 해야지!
-                            double c4 = string.IsNullOrEmpty(gridView.Rows[i].Cells["출장/외근시간"].Value.ToString()) ? 
+                            double c4 = string.IsNullOrEmpty(gridView.Rows[i].Cells["출장/외근시간"].Value.ToString()) ?
                                 0 :
-                                Double.Parse(gridView.Rows[i].Cells["출장/외근시간"].Value.ToString().Substring(gridView.Rows[i].Cells["출장/외근시간"].Value.ToString().IndexOf("/")+1));
+                                Double.Parse(gridView.Rows[i].Cells["출장/외근시간"].Value.ToString().Substring(gridView.Rows[i].Cells["출장/외근시간"].Value.ToString().IndexOf("/") + 1));
                             int halfHol = holiday == "반차" ? 4 : 0;
-                            if((c1+c2+c3+c4+halfHol) != 8)
+                            if ((c1 + c2 + c3 + c4 + halfHol) != 8)
                             {
                                 gridView.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
                                 isCorrect = false;
                             }
-                            
+
                         }
                     }
                 }
-                if(isCorrect == false)
+                if (isCorrect == false)
                 {
                     MessageBox.Show("하루 업무시간의 합은 8시간이 되어야 합니다.");
                     pb.Close();
-                    th.Abort(); 
+                    th.Abort();
                     return;
                 }
 
@@ -827,7 +828,7 @@ namespace Project_Manage
                     //============== 탑뷰 ==============
                     ws.Range["B2"].Value = string.Format("{0}월 프로젝트 인력 투입 현황 (개인별)", selectMonth.SelectedItem.ToString());
                     int ld = DateTime.DaysInMonth(DateTime.Now.Year, Int32.Parse(selectMonth.SelectedItem.ToString()));
-                    ws.Range["B3"].Value = string.Format("기준일 : {0}.{1}.{2} ~ {1}.{3}", 
+                    ws.Range["B3"].Value = string.Format("기준일 : {0}.{1}.{2} ~ {1}.{3}",
                         DateTime.Now.Year.ToString(), selectMonth.SelectedItem.ToString(), 01, ld);
                     ws.Range["C5"].Value = string.Format("{0}사업부", departTbox.Text);   //부서명
                     ws.Range["I5"].Value = string.Format("{0}팀", teamTbox.Text);    //팀명
@@ -842,18 +843,18 @@ namespace Project_Manage
                         int search = ld;
 
                         int rownum = 0;
-                        for (int i=1; i<=colRange.Count; i++)
+                        for (int i = 1; i <= colRange.Count; i++)
                         {
                             Excel.Range cell = (Excel.Range)colRange.Item[i];
-                            if(cell.Value2.ToString() == (search + 1).ToString())
+                            if (cell.Value2.ToString() == (search + 1).ToString())
                             {
                                 rownum = cell.Row;
 
                             }
 
-                            if(redDays.Contains(int.Parse(cell.Value2.ToString())))
+                            if (redDays.Contains(int.Parse(cell.Value2.ToString())))
                             {
-                               cell.Font.Color = Color.Red;
+                                cell.Font.Color = Color.Red;
                             }
                         }
 
@@ -879,7 +880,7 @@ namespace Project_Manage
                     //3. PJ 코드 및 업무시간 입력하기
                     //gridView에 value가 있다면 -> 엑셀에서 해당 일자의 row를 찾아 입력하기
                     Dictionary<string, string> valueD = null;
-                        
+
                     Dictionary<string, object> keyD
                         = new Dictionary<string, object>();
 
@@ -889,7 +890,7 @@ namespace Project_Manage
                         {
                             if (r.Cells[i].Value.ToString() != "")
                             {
-                                if(r.Cells["일자"].Value.ToString() == "")
+                                if (r.Cells["일자"].Value.ToString() == "")
                                 {
                                     break;
                                 }
@@ -908,7 +909,7 @@ namespace Project_Manage
 
                     }
 
-                    foreach(KeyValuePair<string, object> item in keyD)
+                    foreach (KeyValuePair<string, object> item in keyD)
                     {
                         for (int j = 1; j <= colRange.Count; j++)
                         {
@@ -917,8 +918,8 @@ namespace Project_Manage
                             {
                                 Dictionary<string, string> val = (Dictionary<string, string>)item.Value;
                                 int rowIndex = cell.Row;
-                                ws.Cells[rowIndex, 3] = val["주"].Substring(0,val["주"].IndexOf('/'));  //주 프로젝트의 PJ코드
-                                ws.Cells[rowIndex, 4] = val["주"].Substring(val["주"].IndexOf('/')+1);  //주 프로젝트의 업무시간
+                                ws.Cells[rowIndex, 3] = val["주"].Substring(0, val["주"].IndexOf('/'));  //주 프로젝트의 PJ코드
+                                ws.Cells[rowIndex, 4] = val["주"].Substring(val["주"].IndexOf('/') + 1);  //주 프로젝트의 업무시간
                                 ws.Cells[rowIndex, 5] = val["보조"].Substring(0, val["보조"].IndexOf('/'));  //보조 프로젝트의 PJ코드
                                 ws.Cells[rowIndex, 6] = val["보조"].Substring(val["보조"].IndexOf('/') + 1);  //보조 프로젝트의 업무시간
                                 ws.Cells[rowIndex, 7] = val["보조(PS)"].Substring(0, val["보조(PS)"].IndexOf('/'));  //보조(PS) 프로젝트의 PJ코드
@@ -941,25 +942,25 @@ namespace Project_Manage
                         SearchDirection: Excel.XlSearchDirection.xlNext
                         );
                     int row = 0;
-                    if(resultRange != null)
+                    if (resultRange != null)
                     {
                         row = resultRange.Row;
                     }
-                    ws.Cells[row, 4].Formula = "=Sum(" + ws.Cells[10, 4].Address + ":" + ws.Cells[row-1, 4].Address + ")";    //주 프로젝트 합계
+                    ws.Cells[row, 4].Formula = "=Sum(" + ws.Cells[10, 4].Address + ":" + ws.Cells[row - 1, 4].Address + ")";    //주 프로젝트 합계
                     ws.Cells[row, 6].Formula = "=Sum(" + ws.Cells[10, 6].Address + ":" + ws.Cells[row - 1, 6].Address + ")";    //보조 프로젝트 합계
                     ws.Cells[row, 8].Formula = "=Sum(" + ws.Cells[10, 8].Address + ":" + ws.Cells[row - 1, 8].Address + ")";    //보조(PS) 프로젝트 합계
                     //출장/외근시간 합계
                     int result = 0;
-                    for(int i=10; i<=row-1; i++)
+                    for (int i = 10; i <= row - 1; i++)
                     {
-                        if(!string.IsNullOrEmpty((string)(ws.Cells[i, 9] as Excel.Range).Value))
+                        if (!string.IsNullOrEmpty((string)(ws.Cells[i, 9] as Excel.Range).Value))
                         {
                             string val = (string)(ws.Cells[i, 9] as Excel.Range).Value;
-                            string time = val.Substring(val.IndexOf("/")+1);
+                            string time = val.Substring(val.IndexOf("/") + 1);
                             result += int.Parse(time);
                         }
                     }
-                    if(result != 0)
+                    if (result != 0)
                     {
                         ws.Cells[row, 9] = result;
                     }
@@ -971,12 +972,12 @@ namespace Project_Manage
 
                     //==============  임시코드란 ==============
                     //1. 임시코드가 있는지 여부부터 판단
-                    if(tempPcodeTable != null)
+                    if (tempPcodeTable != null)
                     {
                         Excel.Range findRange = ws.Range["B8:J41"];
                         int tempCodeIndex = 9;
 
-                        for (int i=0; i<tempPcodeTable.Rows.Count; i++)
+                        for (int i = 0; i < tempPcodeTable.Rows.Count; i++)
                         {
                             string tempPcode = tempPcodeTable.Rows[i]["코드"].ToString();
                             Excel.Range isExist = findRange.Find(
@@ -986,15 +987,15 @@ namespace Project_Manage
                                             SearchOrder: Excel.XlSearchOrder.xlByRows,
                                             SearchDirection: Excel.XlSearchDirection.xlNext
                                         );
-                            if(isExist != null)
+                            if (isExist != null)
                             {
-                                if(tempCodeIndex == 9)
+                                if (tempCodeIndex == 9)
                                 {
                                     ws.Cells[tempCodeIndex, 12] = "* 프로젝트 코드 리스트 부재로 인한 임시 추가";
-                                    
-                                    ws.Cells[tempCodeIndex+1, 12] = "코드";
-                                    ws.Cells[tempCodeIndex+1, 13] = "발주사";
-                                    ws.Cells[tempCodeIndex+1, 14] = "프로젝트";
+
+                                    ws.Cells[tempCodeIndex + 1, 12] = "코드";
+                                    ws.Cells[tempCodeIndex + 1, 13] = "발주사";
+                                    ws.Cells[tempCodeIndex + 1, 14] = "프로젝트";
 
                                     Excel.Range c1 = ws.Cells[tempCodeIndex + 1, 12];
                                     Excel.Range c2 = ws.Cells[tempCodeIndex + 1, 14];
@@ -1003,8 +1004,8 @@ namespace Project_Manage
                                     rg.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
                                 }
 
-                                ws.Cells[tempCodeIndex+2, 12] = tempPcode;
-                                ws.Cells[tempCodeIndex+2, 13] = tempPcodeTable.Rows[i]["발주사"].ToString();
+                                ws.Cells[tempCodeIndex + 2, 12] = tempPcode;
+                                ws.Cells[tempCodeIndex + 2, 13] = tempPcodeTable.Rows[i]["발주사"].ToString();
                                 ws.Cells[tempCodeIndex + 2, 14] = tempPcodeTable.Rows[i]["프로젝트"].ToString();
 
                                 Excel.Range c3 = ws.Cells[tempCodeIndex + 2, 12];
@@ -1030,7 +1031,7 @@ namespace Project_Manage
                     MessageBox.Show(sfd.FileName.ToString() + "에 저장되었습니다.");
 
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
                     pb.Close();
@@ -1039,11 +1040,11 @@ namespace Project_Manage
                 }
                 finally
                 {
-                    if(wb != null)
+                    if (wb != null)
                     {
                         wb.Close(0);
                     }
-                    if(excel != null)
+                    if (excel != null)
                     {
                         excel.Quit();
                     }
@@ -1097,6 +1098,7 @@ namespace Project_Manage
         }
         #endregion
 
+        #region 그리드뷰 정렬 막기
         private void pCodeGridView_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
             e.Column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -1106,7 +1108,9 @@ namespace Project_Manage
         {
             e.Column.SortMode = DataGridViewColumnSortMode.NotSortable;
         }
+        #endregion
 
+        #region keyup 관련 기능들
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
@@ -1117,7 +1121,7 @@ namespace Project_Manage
                 }
                 else
                 {
-                    
+
                     DialogResult result = MessageBox.Show("선택된 행의 데이터를 삭제하시겠습니까?", "", MessageBoxButtons.YesNo);
 
                     if (result == DialogResult.No)
@@ -1129,7 +1133,7 @@ namespace Project_Manage
                         //선택된 셀의 행 데이터 삭제
                         foreach (DataGridViewCell c in gridView.SelectedCells)
                         {
-                            for(int i=1; i<gridView.Rows[c.RowIndex].Cells.Count; i++)
+                            for (int i = 1; i < gridView.Rows[c.RowIndex].Cells.Count; i++)
                             {
                                 gridView.Rows[c.RowIndex].Cells[i].Value = null;
                             }
@@ -1139,12 +1143,23 @@ namespace Project_Manage
             }
         }
 
+        private void startSearch(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //searchBtn이 눌러지도록
+                searchBtn_Click(null, null);
+            }
+        }
+        #endregion
+
+        #region 주말/공휴일 선택 안되게
         private void gridView_SelectionChanged(object sender, EventArgs e)
         {
             //DataGridView dgv = sender as DataGridView;
-            if(gridView != null && gridView.SelectedCells.Count > 0)
+            if (gridView != null && gridView.SelectedCells.Count > 0)
             {
-              foreach(DataGridViewCell c in gridView.SelectedCells)
+                foreach (DataGridViewCell c in gridView.SelectedCells)
                 {
                     if (gridView.Rows[c.RowIndex].Cells["일자"].Value.ToString() == "" || gridView.Rows[c.RowIndex].Cells["일자"].Style.ForeColor == Color.Red)
                     {
@@ -1153,22 +1168,17 @@ namespace Project_Manage
                 }
             }
         }
+        #endregion
 
-        private void startSearch(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
-            {
-                //searchBtn이 눌러지도록
-                searchBtn_Click(null, null);
-            }
-        }
-
+        #region ProgressBar
         private void progressFunc()
         {
             pb = new ProgressBar();
             pb.ShowDialog();
         }
+        #endregion
 
+        #region 그리드뷰 셀 더블클릭 시 텍스트박스에 입력
         private void pCodeGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             tboxList = new List<TextBox>
@@ -1181,18 +1191,48 @@ namespace Project_Manage
 
             string pcode = pCodeGridView.Rows[e.RowIndex].Cells["코드"].Value.ToString();
 
-            for(int i=0; i<tboxList.Count; i++)
+            for (int i = 0; i < tboxList.Count; i++)
             {
-                if(tboxList[i].Text == string.Empty)
+                if (tboxList[i].Text == string.Empty)
                 {
                     tboxList[i].Text = pcode;
                     break;
                 }
             }
         }
+        #endregion
 
 
-        //깃허브 브랜치 생성 테스트.
-        //커밋만 하면? 커밋 후 푸시하면
+        //관리자 기능 => 여기다가 기능 추가하면서 해주시면 됩니다!!!
+        #region 관리자 로그인 및 User 등록
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            string id = idTbox.Text;
+            string password = pwTbox.Text;
+
+            
+            
+            //admin계정 로그인 성공 시
+            loginPage.Visible = false;
+            adminPage.Visible = true;
+        }
+
+        private void registerBtn_Click(object sender, EventArgs e)
+        {
+            string userName = admin_nameTbox.Text;
+            string userJob = admin_jobTbox.Text;
+            string userDepartment = admin_departTbox.Text;
+            string userTeam = admin_teamTbox.Text;
+
+            Console.WriteLine(string.Format("userName:{0}, userJob:{1}, userDepartment:{2}, userTeam:{3}", userName, userJob, userDepartment, userTeam));
+
+            //등록 성공 시
+            MessageBox.Show("회원 등록이 완료되었습니다.");
+            foreach(Control c in adminPage.Controls)
+            {
+                (c as MetroTextBox).Text = string.Empty;
+            }
+        }
+        #endregion
     }
 }

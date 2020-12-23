@@ -43,7 +43,6 @@ namespace Project_Manage
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.searchBtn = new MetroFramework.Controls.MetroButton();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.gridView = new System.Windows.Forms.DataGridView();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.searchTextbox = new MetroFramework.Controls.MetroTextBox();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
@@ -69,9 +68,8 @@ namespace Project_Manage
             this.pcodeTbox3 = new System.Windows.Forms.TextBox();
             this.pcodeTbox4 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.etcTbox = new System.Windows.Forms.TextBox();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.etcTbox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.addPcodeBtn = new MetroFramework.Controls.MetroButton();
@@ -79,12 +77,33 @@ namespace Project_Manage
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flag = new System.Windows.Forms.TextBox();
             this.exportBtn = new MetroFramework.Controls.MetroButton();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.mainPage = new MetroFramework.Controls.MetroPanel();
+            this.gridView = new System.Windows.Forms.DataGridView();
+            this.idTbox = new MetroFramework.Controls.MetroTextBox();
+            this.pwTbox = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.loginPage = new MetroFramework.Controls.MetroPanel();
+            this.adminPage = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.admin_nameTbox = new MetroFramework.Controls.MetroTextBox();
+            this.admin_jobTbox = new MetroFramework.Controls.MetroTextBox();
+            this.admin_teamTbox = new MetroFramework.Controls.MetroTextBox();
+            this.admin_departTbox = new MetroFramework.Controls.MetroTextBox();
+            this.registerBtn = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.pCodeGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.mainPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            this.loginPage.SuspendLayout();
+            this.adminPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // selectMonth
@@ -104,7 +123,7 @@ namespace Project_Manage
             "10",
             "11",
             "12"});
-            this.selectMonth.Location = new System.Drawing.Point(52, 35);
+            this.selectMonth.Location = new System.Drawing.Point(52, 5);
             this.selectMonth.Name = "selectMonth";
             this.selectMonth.Size = new System.Drawing.Size(72, 29);
             this.selectMonth.TabIndex = 0;
@@ -115,7 +134,7 @@ namespace Project_Manage
             this.title.AutoSize = true;
             this.title.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.title.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.title.Location = new System.Drawing.Point(130, 39);
+            this.title.Location = new System.Drawing.Point(130, 9);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(298, 25);
             this.title.TabIndex = 1;
@@ -124,7 +143,7 @@ namespace Project_Manage
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(52, 99);
+            this.metroLabel1.Location = new System.Drawing.Point(50, 75);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(51, 19);
             this.metroLabel1.TabIndex = 2;
@@ -133,7 +152,7 @@ namespace Project_Manage
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(52, 136);
+            this.metroLabel2.Location = new System.Drawing.Point(50, 112);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(51, 19);
             this.metroLabel2.TabIndex = 3;
@@ -141,21 +160,21 @@ namespace Project_Manage
             // 
             // departTbox
             // 
-            this.departTbox.Location = new System.Drawing.Point(109, 97);
+            this.departTbox.Location = new System.Drawing.Point(107, 73);
             this.departTbox.Name = "departTbox";
             this.departTbox.Size = new System.Drawing.Size(84, 25);
             this.departTbox.TabIndex = 4;
             // 
             // writerTbox
             // 
-            this.writerTbox.Location = new System.Drawing.Point(109, 133);
+            this.writerTbox.Location = new System.Drawing.Point(107, 109);
             this.writerTbox.Name = "writerTbox";
             this.writerTbox.Size = new System.Drawing.Size(84, 25);
             this.writerTbox.TabIndex = 5;
             // 
             // teamTbox
             // 
-            this.teamTbox.Location = new System.Drawing.Point(375, 97);
+            this.teamTbox.Location = new System.Drawing.Point(373, 73);
             this.teamTbox.Name = "teamTbox";
             this.teamTbox.Size = new System.Drawing.Size(84, 25);
             this.teamTbox.TabIndex = 7;
@@ -163,7 +182,7 @@ namespace Project_Manage
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(332, 101);
+            this.metroLabel3.Location = new System.Drawing.Point(330, 77);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(37, 19);
             this.metroLabel3.TabIndex = 6;
@@ -171,7 +190,7 @@ namespace Project_Manage
             // 
             // jobTbox
             // 
-            this.jobTbox.Location = new System.Drawing.Point(375, 133);
+            this.jobTbox.Location = new System.Drawing.Point(373, 109);
             this.jobTbox.Name = "jobTbox";
             this.jobTbox.Size = new System.Drawing.Size(84, 25);
             this.jobTbox.TabIndex = 9;
@@ -179,7 +198,7 @@ namespace Project_Manage
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(332, 137);
+            this.metroLabel4.Location = new System.Drawing.Point(330, 113);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(37, 19);
             this.metroLabel4.TabIndex = 8;
@@ -188,7 +207,7 @@ namespace Project_Manage
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(194, 101);
+            this.metroLabel5.Location = new System.Drawing.Point(192, 77);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(51, 19);
             this.metroLabel5.TabIndex = 10;
@@ -197,7 +216,7 @@ namespace Project_Manage
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(461, 101);
+            this.metroLabel6.Location = new System.Drawing.Point(459, 77);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(23, 19);
             this.metroLabel6.TabIndex = 11;
@@ -205,7 +224,7 @@ namespace Project_Manage
             // 
             // searchBtn
             // 
-            this.searchBtn.Location = new System.Drawing.Point(396, 196);
+            this.searchBtn.Location = new System.Drawing.Point(390, 164);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(36, 23);
             this.searchBtn.TabIndex = 12;
@@ -215,36 +234,15 @@ namespace Project_Manage
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(53, 200);
+            this.metroLabel7.Location = new System.Drawing.Point(47, 168);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(97, 19);
             this.metroLabel7.TabIndex = 14;
             this.metroLabel7.Text = "프로젝트 코드";
             // 
-            // gridView
-            // 
-            this.gridView.AllowUserToAddRows = false;
-            this.gridView.AllowUserToDeleteRows = false;
-            this.gridView.AllowUserToResizeColumns = false;
-            this.gridView.AllowUserToResizeRows = false;
-            this.gridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.gridView.Location = new System.Drawing.Point(0, 0);
-            this.gridView.Name = "gridView";
-            this.gridView.ReadOnly = true;
-            this.gridView.RowHeadersVisible = false;
-            this.gridView.RowTemplate.Height = 23;
-            this.gridView.Size = new System.Drawing.Size(586, 527);
-            this.gridView.TabIndex = 15;
-            this.gridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
-            this.gridView.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.gridView_ColumnAdded);
-            this.gridView.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
-            // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(156, 196);
+            this.metroButton2.Location = new System.Drawing.Point(150, 164);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(75, 23);
             this.metroButton2.TabIndex = 20;
@@ -253,7 +251,7 @@ namespace Project_Manage
             // 
             // searchTextbox
             // 
-            this.searchTextbox.Location = new System.Drawing.Point(284, 196);
+            this.searchTextbox.Location = new System.Drawing.Point(278, 164);
             this.searchTextbox.Name = "searchTextbox";
             this.searchTextbox.Size = new System.Drawing.Size(106, 23);
             this.searchTextbox.TabIndex = 26;
@@ -261,7 +259,7 @@ namespace Project_Manage
             // 
             // metroButton3
             // 
-            this.metroButton3.Location = new System.Drawing.Point(568, 603);
+            this.metroButton3.Location = new System.Drawing.Point(562, 535);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(73, 26);
             this.metroButton3.TabIndex = 27;
@@ -274,20 +272,20 @@ namespace Project_Manage
             this.pCodeGridView.AllowUserToDeleteRows = false;
             this.pCodeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.pCodeGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.pCodeGridView.Location = new System.Drawing.Point(53, 223);
+            this.pCodeGridView.Location = new System.Drawing.Point(46, 194);
             this.pCodeGridView.MultiSelect = false;
             this.pCodeGridView.Name = "pCodeGridView";
             this.pCodeGridView.ReadOnly = true;
             this.pCodeGridView.RowHeadersVisible = false;
             this.pCodeGridView.RowTemplate.Height = 23;
-            this.pCodeGridView.Size = new System.Drawing.Size(432, 527);
+            this.pCodeGridView.Size = new System.Drawing.Size(432, 537);
             this.pCodeGridView.TabIndex = 28;
             this.pCodeGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pCodeGridView_CellDoubleClick);
             this.pCodeGridView.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.pCodeGridView_ColumnAdded);
             // 
             // reset
             // 
-            this.reset.Location = new System.Drawing.Point(438, 196);
+            this.reset.Location = new System.Drawing.Point(432, 164);
             this.reset.Name = "reset";
             this.reset.Size = new System.Drawing.Size(47, 23);
             this.reset.TabIndex = 33;
@@ -333,7 +331,7 @@ namespace Project_Manage
             // totalTime
             // 
             this.totalTime.AutoSize = true;
-            this.totalTime.Location = new System.Drawing.Point(584, 581);
+            this.totalTime.Location = new System.Drawing.Point(578, 513);
             this.totalTime.Name = "totalTime";
             this.totalTime.Size = new System.Drawing.Size(23, 19);
             this.totalTime.TabIndex = 38;
@@ -342,7 +340,7 @@ namespace Project_Manage
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(563, 581);
+            this.metroLabel8.Location = new System.Drawing.Point(557, 513);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(23, 19);
             this.metroLabel8.TabIndex = 39;
@@ -351,7 +349,7 @@ namespace Project_Manage
             // metroLabel9
             // 
             this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(605, 581);
+            this.metroLabel9.Location = new System.Drawing.Point(599, 513);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(37, 19);
             this.metroLabel9.TabIndex = 40;
@@ -400,7 +398,7 @@ namespace Project_Manage
             // notice
             // 
             this.notice.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.notice.Location = new System.Drawing.Point(652, 76);
+            this.notice.Location = new System.Drawing.Point(647, 46);
             this.notice.Multiline = true;
             this.notice.Name = "notice";
             this.notice.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -433,7 +431,7 @@ namespace Project_Manage
             // 
             this.groupBox1.Controls.Add(this.halfDay);
             this.groupBox1.Controls.Add(this.allDay);
-            this.groupBox1.Location = new System.Drawing.Point(492, 539);
+            this.groupBox1.Location = new System.Drawing.Point(486, 471);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(154, 39);
             this.groupBox1.TabIndex = 47;
@@ -489,20 +487,12 @@ namespace Project_Manage
             this.groupBox2.Controls.Add(this.time2);
             this.groupBox2.Controls.Add(this.inputPcodeBtn1);
             this.groupBox2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox2.Location = new System.Drawing.Point(491, 353);
+            this.groupBox2.Location = new System.Drawing.Point(485, 285);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(156, 180);
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "업무";
-            // 
-            // etcTbox
-            // 
-            this.etcTbox.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.etcTbox.Location = new System.Drawing.Point(72, 150);
-            this.etcTbox.Name = "etcTbox";
-            this.etcTbox.Size = new System.Drawing.Size(78, 23);
-            this.etcTbox.TabIndex = 53;
             // 
             // metroButton1
             // 
@@ -512,17 +502,17 @@ namespace Project_Manage
             this.metroButton1.TabIndex = 52;
             this.metroButton1.Text = "기타";
             // 
-            // panel1
+            // etcTbox
             // 
-            this.panel1.Controls.Add(this.gridView);
-            this.panel1.Location = new System.Drawing.Point(652, 223);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(586, 527);
-            this.panel1.TabIndex = 50;
+            this.etcTbox.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.etcTbox.Location = new System.Drawing.Point(72, 150);
+            this.etcTbox.Name = "etcTbox";
+            this.etcTbox.Size = new System.Drawing.Size(78, 23);
+            this.etcTbox.TabIndex = 53;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(491, 223);
+            this.textBox1.Location = new System.Drawing.Point(532, 107);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(65, 21);
             this.textBox1.TabIndex = 51;
@@ -530,7 +520,7 @@ namespace Project_Manage
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(491, 250);
+            this.textBox2.Location = new System.Drawing.Point(532, 134);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(65, 21);
             this.textBox2.TabIndex = 52;
@@ -558,7 +548,7 @@ namespace Project_Manage
             // 
             this.groupBox3.Controls.Add(this.addPcodeBtn);
             this.groupBox3.Controls.Add(this.delPcodeBtn);
-            this.groupBox3.Location = new System.Drawing.Point(491, 701);
+            this.groupBox3.Location = new System.Drawing.Point(484, 682);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(156, 49);
             this.groupBox3.TabIndex = 55;
@@ -567,7 +557,7 @@ namespace Project_Manage
             // 
             // flag
             // 
-            this.flag.Location = new System.Drawing.Point(492, 277);
+            this.flag.Location = new System.Drawing.Point(533, 161);
             this.flag.Name = "flag";
             this.flag.Size = new System.Drawing.Size(65, 21);
             this.flag.TabIndex = 56;
@@ -575,64 +565,275 @@ namespace Project_Manage
             // 
             // exportBtn
             // 
-            this.exportBtn.Location = new System.Drawing.Point(1246, 701);
+            this.exportBtn.Location = new System.Drawing.Point(1240, 682);
             this.exportBtn.Name = "exportBtn";
             this.exportBtn.Size = new System.Drawing.Size(92, 49);
             this.exportBtn.TabIndex = 57;
             this.exportBtn.Text = "Save File";
             this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
+            // metroButton4
+            // 
+            this.metroButton4.Location = new System.Drawing.Point(550, 90);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(79, 67);
+            this.metroButton4.TabIndex = 58;
+            this.metroButton4.Text = "Login";
+            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
+            // 
+            // mainPage
+            // 
+            this.mainPage.Controls.Add(this.gridView);
+            this.mainPage.Controls.Add(this.exportBtn);
+            this.mainPage.Controls.Add(this.groupBox3);
+            this.mainPage.Controls.Add(this.notice);
+            this.mainPage.Controls.Add(this.groupBox2);
+            this.mainPage.Controls.Add(this.groupBox1);
+            this.mainPage.Controls.Add(this.flag);
+            this.mainPage.Controls.Add(this.metroLabel9);
+            this.mainPage.Controls.Add(this.metroLabel1);
+            this.mainPage.Controls.Add(this.metroLabel8);
+            this.mainPage.Controls.Add(this.metroLabel2);
+            this.mainPage.Controls.Add(this.totalTime);
+            this.mainPage.Controls.Add(this.textBox2);
+            this.mainPage.Controls.Add(this.metroButton3);
+            this.mainPage.Controls.Add(this.departTbox);
+            this.mainPage.Controls.Add(this.textBox1);
+            this.mainPage.Controls.Add(this.writerTbox);
+            this.mainPage.Controls.Add(this.pCodeGridView);
+            this.mainPage.Controls.Add(this.metroLabel3);
+            this.mainPage.Controls.Add(this.teamTbox);
+            this.mainPage.Controls.Add(this.metroLabel4);
+            this.mainPage.Controls.Add(this.jobTbox);
+            this.mainPage.Controls.Add(this.metroLabel5);
+            this.mainPage.Controls.Add(this.metroLabel6);
+            this.mainPage.Controls.Add(this.searchBtn);
+            this.mainPage.Controls.Add(this.reset);
+            this.mainPage.Controls.Add(this.title);
+            this.mainPage.Controls.Add(this.selectMonth);
+            this.mainPage.Controls.Add(this.metroLabel7);
+            this.mainPage.Controls.Add(this.metroButton2);
+            this.mainPage.Controls.Add(this.searchTextbox);
+            this.mainPage.HorizontalScrollbarBarColor = true;
+            this.mainPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.mainPage.HorizontalScrollbarSize = 10;
+            this.mainPage.Location = new System.Drawing.Point(6, 25);
+            this.mainPage.Name = "mainPage";
+            this.mainPage.Size = new System.Drawing.Size(1349, 749);
+            this.mainPage.TabIndex = 59;
+            this.mainPage.VerticalScrollbarBarColor = true;
+            this.mainPage.VerticalScrollbarHighlightOnWheel = false;
+            this.mainPage.VerticalScrollbarSize = 10;
+            this.mainPage.Visible = false;
+            // 
+            // gridView
+            // 
+            this.gridView.AllowUserToAddRows = false;
+            this.gridView.AllowUserToDeleteRows = false;
+            this.gridView.AllowUserToResizeColumns = false;
+            this.gridView.AllowUserToResizeRows = false;
+            this.gridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.gridView.Location = new System.Drawing.Point(647, 193);
+            this.gridView.Name = "gridView";
+            this.gridView.ReadOnly = true;
+            this.gridView.RowHeadersVisible = false;
+            this.gridView.RowTemplate.Height = 23;
+            this.gridView.Size = new System.Drawing.Size(586, 537);
+            this.gridView.TabIndex = 15;
+            this.gridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellClick);
+            this.gridView.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.gridView_ColumnAdded);
+            this.gridView.SelectionChanged += new System.EventHandler(this.gridView_SelectionChanged);
+            // 
+            // idTbox
+            // 
+            this.idTbox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.idTbox.Location = new System.Drawing.Point(330, 90);
+            this.idTbox.Name = "idTbox";
+            this.idTbox.Size = new System.Drawing.Size(189, 30);
+            this.idTbox.TabIndex = 60;
+            // 
+            // pwTbox
+            // 
+            this.pwTbox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.pwTbox.Location = new System.Drawing.Point(330, 127);
+            this.pwTbox.Name = "pwTbox";
+            this.pwTbox.Size = new System.Drawing.Size(189, 30);
+            this.pwTbox.TabIndex = 61;
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.Location = new System.Drawing.Point(232, 94);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(28, 19);
+            this.metroLabel10.TabIndex = 62;
+            this.metroLabel10.Text = "ID :";
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(230, 132);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(86, 19);
+            this.metroLabel11.TabIndex = 63;
+            this.metroLabel11.Text = "PASSWORD :";
+            // 
+            // loginPage
+            // 
+            this.loginPage.Controls.Add(this.metroLabel11);
+            this.loginPage.Controls.Add(this.metroLabel10);
+            this.loginPage.Controls.Add(this.metroButton4);
+            this.loginPage.Controls.Add(this.pwTbox);
+            this.loginPage.Controls.Add(this.idTbox);
+            this.loginPage.HorizontalScrollbarBarColor = true;
+            this.loginPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.loginPage.HorizontalScrollbarSize = 10;
+            this.loginPage.Location = new System.Drawing.Point(209, 229);
+            this.loginPage.Name = "loginPage";
+            this.loginPage.Size = new System.Drawing.Size(856, 242);
+            this.loginPage.TabIndex = 64;
+            this.loginPage.VerticalScrollbarBarColor = true;
+            this.loginPage.VerticalScrollbarHighlightOnWheel = false;
+            this.loginPage.VerticalScrollbarSize = 10;
+            // 
+            // adminPage
+            // 
+            this.adminPage.Controls.Add(this.registerBtn);
+            this.adminPage.Controls.Add(this.admin_teamTbox);
+            this.adminPage.Controls.Add(this.admin_departTbox);
+            this.adminPage.Controls.Add(this.admin_jobTbox);
+            this.adminPage.Controls.Add(this.admin_nameTbox);
+            this.adminPage.Controls.Add(this.metroLabel18);
+            this.adminPage.Controls.Add(this.metroLabel17);
+            this.adminPage.Controls.Add(this.metroLabel15);
+            this.adminPage.Controls.Add(this.metroLabel14);
+            this.adminPage.Controls.Add(this.metroLabel12);
+            this.adminPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.adminPage.HorizontalScrollbarBarColor = true;
+            this.adminPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.adminPage.HorizontalScrollbarSize = 10;
+            this.adminPage.Location = new System.Drawing.Point(20, 60);
+            this.adminPage.Name = "adminPage";
+            this.adminPage.Size = new System.Drawing.Size(1321, 710);
+            this.adminPage.TabIndex = 65;
+            this.adminPage.VerticalScrollbarBarColor = true;
+            this.adminPage.VerticalScrollbarHighlightOnWheel = false;
+            this.adminPage.VerticalScrollbarSize = 10;
+            this.adminPage.Visible = false;
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel12.Location = new System.Drawing.Point(579, 21);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(147, 25);
+            this.metroLabel12.TabIndex = 2;
+            this.metroLabel12.Text = "관리자 페이지(?)";
+            // 
+            // metroLabel14
+            // 
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.Location = new System.Drawing.Point(493, 118);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(37, 19);
+            this.metroLabel14.TabIndex = 4;
+            this.metroLabel14.Text = "직위";
+            // 
+            // metroLabel15
+            // 
+            this.metroLabel15.AutoSize = true;
+            this.metroLabel15.Location = new System.Drawing.Point(493, 74);
+            this.metroLabel15.Name = "metroLabel15";
+            this.metroLabel15.Size = new System.Drawing.Size(37, 19);
+            this.metroLabel15.TabIndex = 5;
+            this.metroLabel15.Text = "이름";
+            // 
+            // metroLabel17
+            // 
+            this.metroLabel17.AutoSize = true;
+            this.metroLabel17.Location = new System.Drawing.Point(493, 165);
+            this.metroLabel17.Name = "metroLabel17";
+            this.metroLabel17.Size = new System.Drawing.Size(51, 19);
+            this.metroLabel17.TabIndex = 7;
+            this.metroLabel17.Text = "부서명";
+            // 
+            // metroLabel18
+            // 
+            this.metroLabel18.AutoSize = true;
+            this.metroLabel18.Location = new System.Drawing.Point(493, 214);
+            this.metroLabel18.Name = "metroLabel18";
+            this.metroLabel18.Size = new System.Drawing.Size(37, 19);
+            this.metroLabel18.TabIndex = 8;
+            this.metroLabel18.Text = "팀명";
+            // 
+            // admin_nameTbox
+            // 
+            this.admin_nameTbox.Location = new System.Drawing.Point(602, 71);
+            this.admin_nameTbox.Name = "admin_nameTbox";
+            this.admin_nameTbox.Size = new System.Drawing.Size(181, 30);
+            this.admin_nameTbox.TabIndex = 11;
+            // 
+            // admin_jobTbox
+            // 
+            this.admin_jobTbox.Location = new System.Drawing.Point(602, 114);
+            this.admin_jobTbox.Name = "admin_jobTbox";
+            this.admin_jobTbox.Size = new System.Drawing.Size(181, 30);
+            this.admin_jobTbox.TabIndex = 12;
+            // 
+            // admin_teamTbox
+            // 
+            this.admin_teamTbox.Location = new System.Drawing.Point(602, 203);
+            this.admin_teamTbox.Name = "admin_teamTbox";
+            this.admin_teamTbox.Size = new System.Drawing.Size(181, 30);
+            this.admin_teamTbox.TabIndex = 14;
+            // 
+            // admin_departTbox
+            // 
+            this.admin_departTbox.Location = new System.Drawing.Point(602, 159);
+            this.admin_departTbox.Name = "admin_departTbox";
+            this.admin_departTbox.Size = new System.Drawing.Size(181, 30);
+            this.admin_departTbox.TabIndex = 13;
+            // 
+            // registerBtn
+            // 
+            this.registerBtn.Location = new System.Drawing.Point(588, 266);
+            this.registerBtn.Name = "registerBtn";
+            this.registerBtn.Size = new System.Drawing.Size(119, 38);
+            this.registerBtn.TabIndex = 15;
+            this.registerBtn.Text = "등록";
+            this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1361, 790);
-            this.Controls.Add(this.exportBtn);
-            this.Controls.Add(this.flag);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.notice);
-            this.Controls.Add(this.metroLabel9);
-            this.Controls.Add(this.metroLabel8);
-            this.Controls.Add(this.totalTime);
-            this.Controls.Add(this.reset);
-            this.Controls.Add(this.pCodeGridView);
-            this.Controls.Add(this.metroButton3);
-            this.Controls.Add(this.searchTextbox);
-            this.Controls.Add(this.metroButton2);
-            this.Controls.Add(this.metroLabel7);
-            this.Controls.Add(this.searchBtn);
-            this.Controls.Add(this.metroLabel6);
-            this.Controls.Add(this.metroLabel5);
-            this.Controls.Add(this.jobTbox);
-            this.Controls.Add(this.metroLabel4);
-            this.Controls.Add(this.teamTbox);
-            this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.writerTbox);
-            this.Controls.Add(this.departTbox);
-            this.Controls.Add(this.metroLabel2);
-            this.Controls.Add(this.metroLabel1);
-            this.Controls.Add(this.title);
-            this.Controls.Add(this.selectMonth);
+            this.Controls.Add(this.adminPage);
+            this.Controls.Add(this.mainPage);
+            this.Controls.Add(this.loginPage);
             this.KeyPreview = true;
             this.Name = "Form1";
             this.Style = MetroFramework.MetroColorStyle.Yellow;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pCodeGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.mainPage.ResumeLayout(false);
+            this.mainPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            this.loginPage.ResumeLayout(false);
+            this.loginPage.PerformLayout();
+            this.adminPage.ResumeLayout(false);
+            this.adminPage.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -652,7 +853,6 @@ namespace Project_Manage
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroButton searchBtn;
         private MetroFramework.Controls.MetroLabel metroLabel7;
-        private System.Windows.Forms.DataGridView gridView;
         private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroTextBox searchTextbox;
         private MetroFramework.Controls.MetroButton metroButton3;
@@ -677,7 +877,6 @@ namespace Project_Manage
         private System.Windows.Forms.TextBox pcodeTbox3;
         private System.Windows.Forms.TextBox pcodeTbox4;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.DataGridView pCodeGridView;
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.TextBox textBox2;
@@ -688,6 +887,25 @@ namespace Project_Manage
         private MetroFramework.Controls.MetroButton metroButton1;
         public System.Windows.Forms.TextBox flag;
         private MetroFramework.Controls.MetroButton exportBtn;
+        private MetroFramework.Controls.MetroButton metroButton4;
+        private MetroFramework.Controls.MetroPanel mainPage;
+        private System.Windows.Forms.DataGridView gridView;
+        private MetroFramework.Controls.MetroTextBox idTbox;
+        private MetroFramework.Controls.MetroTextBox pwTbox;
+        private MetroFramework.Controls.MetroLabel metroLabel10;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroPanel loginPage;
+        private MetroFramework.Controls.MetroPanel adminPage;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroTextBox admin_teamTbox;
+        private MetroFramework.Controls.MetroTextBox admin_departTbox;
+        private MetroFramework.Controls.MetroTextBox admin_jobTbox;
+        private MetroFramework.Controls.MetroTextBox admin_nameTbox;
+        private MetroFramework.Controls.MetroLabel metroLabel18;
+        private MetroFramework.Controls.MetroLabel metroLabel17;
+        private MetroFramework.Controls.MetroLabel metroLabel15;
+        private MetroFramework.Controls.MetroLabel metroLabel14;
+        private MetroFramework.Controls.MetroButton registerBtn;
     }
 }
 
